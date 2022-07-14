@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /* Import user configuration: */
 #ifdef __Unikraft__
@@ -23,12 +22,6 @@ static void millisleep(unsigned int millisec)
 	while (ret && errno == EINTR);
 }
 #endif /* CONFIG_APPHELLOWORLD_SPINNER */
-
-void __attribute__ ((constructor)) __attribute__((no_sanitize("shadow-call-stack"))) setup_x18()
-{
-	void *shadow = malloc(16384);
-	__asm __volatile ( "mov x18, %0" : : "r" (shadow) );
-}
 
 int main(int argc, char *argv[])
 {
