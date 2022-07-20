@@ -2,3 +2,4 @@ $(eval $(call addlib,apphelloworld))
 
 APPHELLOWORLD_SRCS-y += $(APPHELLOWORLD_BASE)/main.c
 APPHELLOWORLD_CINCLUDES-y += -fsanitize=shadow-call-stack -ffixed-x18 -fno-exceptions
+COMPFLAGS-y += -ffixed-x18 -fno-exceptions
